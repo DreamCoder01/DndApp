@@ -1,0 +1,14 @@
+C:\Users\Student\workspace\samuel-clark-student-code\personal-projects\dndCLIapp\dndCLIapp\bin\Debug\netcoreapp3.1\dndCLIapp.exe
+C:\Users\Student\workspace\samuel-clark-student-code\personal-projects\dndCLIapp\dndCLIapp\bin\Debug\netcoreapp3.1\dndCLIapp.deps.json
+C:\Users\Student\workspace\samuel-clark-student-code\personal-projects\dndCLIapp\dndCLIapp\bin\Debug\netcoreapp3.1\dndCLIapp.runtimeconfig.json
+C:\Users\Student\workspace\samuel-clark-student-code\personal-projects\dndCLIapp\dndCLIapp\bin\Debug\netcoreapp3.1\dndCLIapp.runtimeconfig.dev.json
+C:\Users\Student\workspace\samuel-clark-student-code\personal-projects\dndCLIapp\dndCLIapp\bin\Debug\netcoreapp3.1\dndCLIapp.dll
+C:\Users\Student\workspace\samuel-clark-student-code\personal-projects\dndCLIapp\dndCLIapp\bin\Debug\netcoreapp3.1\dndCLIapp.pdb
+C:\Users\Student\workspace\samuel-clark-student-code\personal-projects\dndCLIapp\dndCLIapp\obj\Debug\netcoreapp3.1\dndCLIapp.csproj.AssemblyReference.cache
+C:\Users\Student\workspace\samuel-clark-student-code\personal-projects\dndCLIapp\dndCLIapp\obj\Debug\netcoreapp3.1\dndCLIapp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Student\workspace\samuel-clark-student-code\personal-projects\dndCLIapp\dndCLIapp\obj\Debug\netcoreapp3.1\dndCLIapp.AssemblyInfoInputs.cache
+C:\Users\Student\workspace\samuel-clark-student-code\personal-projects\dndCLIapp\dndCLIapp\obj\Debug\netcoreapp3.1\dndCLIapp.AssemblyInfo.cs
+C:\Users\Student\workspace\samuel-clark-student-code\personal-projects\dndCLIapp\dndCLIapp\obj\Debug\netcoreapp3.1\dndCLIapp.csproj.CoreCompileInputs.cache
+C:\Users\Student\workspace\samuel-clark-student-code\personal-projects\dndCLIapp\dndCLIapp\obj\Debug\netcoreapp3.1\dndCLIapp.dll
+C:\Users\Student\workspace\samuel-clark-student-code\personal-projects\dndCLIapp\dndCLIapp\obj\Debug\netcoreapp3.1\dndCLIapp.pdb
+C:\Users\Student\workspace\samuel-clark-student-code\personal-projects\dndCLIapp\dndCLIapp\obj\Debug\netcoreapp3.1\dndCLIapp.genruntimeconfig.cache

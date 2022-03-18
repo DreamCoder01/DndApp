@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "hyxHcSC0ZJ6TcjI1qkfnmO8lTvSGaEqzjRf5iXeyO/fZAEvQbJBm1rH0DuJQ2YTXANmu6hUJrKhMsmVYLTWHAA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Student\\workspace\\samuel-clark-student-code\\personal-projects\\dndCLIapp\\dndCLIapp\\DndApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Student\\.nuget\\packages\\lbt.restsharp\\106.11.7.1\\lbt.restsharp.106.11.7.1.nupkg.sha512"
+  ],
+  "logs": []
+}
