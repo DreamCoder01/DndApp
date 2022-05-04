@@ -6,20 +6,26 @@ namespace DndApp.Models
 {
     public class Race
     {
-        //race details or race expanded
+        //race details
         public string Index { get; set; }
         public string Name { get; set; }
         public int Speed { get; set; }
-        public string AbilityBonus { get; set; }
+        public List<AbilityBonus> Ability_Bonuses { get; set; }
         public string Alignment { get; set; }
         public string Age { get; set; }
         public string Size { get; set; }
         public string Size_Description { get; set; }
-        public string StartingProficiences { get; set; }
-        public string StartingProficiencesOptions { get; set; }
+        public List<ApiReference> Starting_Proficiences { get; set; }
+        public Choice Starting_Proficiency_Options { get; set; }
         public List<ApiReference> Languages { get; set; }
         public string Language_Desc { get; set; }
+        public Choice Language_Options { get; set; }
         public List<ApiReference> Traits { get; set; }
+        public List<ApiReference> Subraces { get; set; }
+
+        
+
+
         //public string SubRaces { get; set; }//actually a list of objects/url/ start with pulling into string format// refactor pulling json objects // another api call with uri // 
 
        /* public RaceDetail(string index, string name, int speed, string abilityBonus, string alignment, int age, string size, string sizeDescription, string startingProficiences, string startingProficiencesOptions, string languages, string languagesDescription, string traits, string subRaces)

@@ -1,0 +1,35 @@
+﻿<Properties StartupConfiguration="{916E53CD-F356-4BA4-838E-30CD9800EECC}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="dndCLIapp/Models/Damage.cs">
+    <Files>
+      <File FileName="dndCLIapp/Services/DndConsoleService.cs" Line="357" Column="10" />
+      <File FileName="dndCLIapp/Models/Spell.cs" Line="30" Column="1" />
+      <File FileName="dndCLIapp/Models/Damage.cs" Line="9" Column="63" />
+      <File FileName="dndCLIapp/Models/AbilityBonus.cs" Line="1" Column="1" />
+      <File FileName="dndCLIapp/Models/AbilityScore.cs" Line="1" Column="1" />
+      <File FileName="dndCLIapp/Models/ApiReference.cs" Line="16" Column="10" />
+      <File FileName="dndCLIapp/Models/HealAtSlotLevel.cs" Line="10" Column="1" />
+      <File FileName="dndCLIapp/Models/DamageType.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="dndCLIapp" expanded="True">
+            <Node name="DndApp" expanded="True">
+              <Node name="Models" expanded="True">
+                <Node name="Damage.cs" selected="True" />
+              </Node>
+              <Node name="Services" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.DndApp PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

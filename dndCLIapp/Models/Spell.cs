@@ -19,8 +19,9 @@ namespace DndApp.Models
         public string Casting_Time { get; set; }
         public int Level { get; set; }
         public string Attack_Type { get; set; }
-        public object Damage { get; set; }
-        public List<ApiReference> School { get; set; } //ApiReference (Magic Schools)
+        public Damage Damage { get; set; }
+        public Heal_At_Slot_Level Heal { get; set; }
+        public ApiReference School { get; set; } //ApiReference (Magic Schools)
         public List<ApiReference> Classes { get; set; } //ApiReference (Classes)
         public List<ApiReference> Subclasses { get; set; }
         public string Url { get; set; }
