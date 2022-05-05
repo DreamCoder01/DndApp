@@ -116,7 +116,7 @@ namespace DndApp.Services
             Console.WriteLine("--------------------------------------------");
             Console.WriteLine(classy.Name);
             Console.WriteLine("");
-            Console.WriteLine("Hit Points\nHit Die: " + classy.Hit_Die);
+            Console.WriteLine("Hit Points\nHit Dice: 1d" + classy.Hit_Die);
             Console.WriteLine("");
             Console.WriteLine("Proficiency Choices ");
             PrintChoiceList(classy.Proficiency_Choices);
@@ -347,33 +347,27 @@ namespace DndApp.Services
                 Console.WriteLine("");
             }
         }
+
         public void PrintStartingEquipmentOptions(Class classy)
         {
             if (classy != null)
             {
-                foreach (StartingEquipmentOptions seo in classy.Starting_Equipment_Options)
+                foreach (StartingEquipmentOption seos in classy.Starting_Equipment_Options)
                 {
-                    Console.WriteLine($"Choose {seo.Choose} from the following {seo.Type}: ");
-                    PrintEachStartingEquipment(seo.From);
+                    for (int i = 0; i < seos.from.Count; i++)
+                    {
+                        if (i == 0)
+                        {
+                            Console.WriteLine($"Choose {seos.choose} from the following {seos.type}: ");
+                            Console.WriteLine($"  (a) {seos.from[0].quantity} {seos.from[0].equipment.name}  ");
+                        }
+                        else if (i == 1)
+                        {
+                            Console.WriteLine($"  (b) or something from {seos.from[1].equipment_option.from.equipment_category.name}");
+                            Console.WriteLine("");
+                        }
+                    }
                 }
-            }
-        }
-
-        public void PrintEachStartingEquipment(List<StartingEquipment> ses)
-        {
-            int counter = 0;
-            if (ses == null || ses.Count == 0)
-            {
-                Console.WriteLine("  None");
-            }
-            else
-            {
-                foreach (StartingEquipment se in ses)
-                {
-                    counter++;
-                    Console.WriteLine($"  {counter}: {se}");
-                }
-                Console.WriteLine("");
             }
         }
 

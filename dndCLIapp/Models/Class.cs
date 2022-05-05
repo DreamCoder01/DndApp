@@ -13,7 +13,7 @@ namespace DndApp.Models
         public List<ApiReference> Proficiencies { get; set; } //ApiReference (Proficiences)
         public List<ApiReference> Saving_Throws { get; set; } //ApiReference (Ability Scores)
         public List<StartingEquipment> Starting_Equipment { get; set; } //Object (Starting Equipment)
-        public List<StartingEquipmentOptions> Starting_Equipment_Options { get; set; }
+        public List<StartingEquipmentOption> Starting_Equipment_Options { get; set; } //A list of a list of choices?
         public string Class_Levels { get; set; } //string (Levels)
         public object Multi_Classing { get; set; } // object (Multi Classing)
         public List<ApiReference> Subclasses { get; set; } //list ApiReference (SubClass)

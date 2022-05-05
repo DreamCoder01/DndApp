@@ -4,10 +4,10 @@ using System.Text;
 
 namespace DndApp.Models
 {
-    class EquipmentCategory
+    public class EquipmentCategory
     {
         public string Index { get; set; }
         public string Name { get; set; }
-        public List<ApiReference> Equipment { get; set; } //List ApiReference (Equipment)
+        public ApiReference Equipment { get; set; } //List ApiReference (Equipment)
     }
 }
