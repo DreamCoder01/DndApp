@@ -53,7 +53,43 @@ namespace DndApp.Services
             return response.Data;
         }
 
+        
 
+        public ApiReferenceList ReturnListOfClassDetails()
+        {
+            RestRequest request = new RestRequest("/api/classes");
+            IRestResponse<ApiReferenceList> response = client.Get<ApiReferenceList>(request);
+            if (response.ResponseStatus != ResponseStatus.Completed)
+            {
+                throw new HttpRequestException("Error occurred - unable to reach server.", response.ErrorException);
+            }
+            else if (!response.IsSuccessful)
+            {
+                throw new HttpRequestException("Error occurred - received non-success response: " + (int)response.StatusCode);
+            }
+            return response.Data;
+        }
+
+        public List<ApiReference> DisplayClassList()
+        {
+            ApiReferenceList returnedData = ReturnListOfClassDetails();
+            return returnedData.Results;
+        }
+
+        public Class GetClassDetail(string url)
+        {
+            RestRequest request = new RestRequest(url);
+            IRestResponse<Class> response = client.Get<Class>(request);
+            if (response.ResponseStatus != ResponseStatus.Completed)
+            {
+                throw new HttpRequestException("Error occurred - unable to reach server.", response.ErrorException);
+            }
+            else if (!response.IsSuccessful)
+            {
+                throw new HttpRequestException("Error occurred - received non-success response: " + (int)response.StatusCode);
+            }
+            return response.Data;
+        }
 
 
         public ApiReferenceList ReturnListOfSpells()

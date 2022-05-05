@@ -7,5 +7,8 @@ namespace DndApp.Models
         public ApiReference Damage_Type { get; set; }
 
         public Dictionary<string, string> Damage_At_Slot_Level { get; set; }
+
+        public Dictionary<string, string> Damage_At_Character_Level { get; set; }
+        
     }
 }

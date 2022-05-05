@@ -15,6 +15,7 @@ namespace DndApp
         private readonly DndConsoleService console = new DndConsoleService();
         private List<ApiReference> AllRaces = new List<ApiReference>();
         private List<ApiReference> AllSpells = new List<ApiReference>();
+        private List<ApiReference> AllClasses = new List<ApiReference>();
         private RollGenerator rollGenerator = new RollGenerator();
         public DndApp(string apiUrl)
         {
@@ -55,7 +56,7 @@ namespace DndApp
                 if (menuSelection == 4)
                 {
                     // Search for auctions below a price
-                    ShowAuctionsBelowPrice();
+                    ShowClasses();
                 }
 
                 if (menuSelection == 5)
@@ -88,6 +89,24 @@ namespace DndApp
                 
                 Race race = dndApiService.GetRaceDetail(AllRaces[menuSelection - 1].Url);
                 console.PrintRace(race);
+            }
+            catch (Exception ex)
+            {
+                console.PrintError(ex.Message);
+            }
+            console.Pause();
+        }
+
+        private void ShowClasses()
+        {
+            try
+            {
+                AllClasses = dndApiService.DisplayClassList();
+                console.PrintClassList(AllClasses);
+                int menuSelection = console.PromptForInteger("Please choose a class", 1, AllClasses.Count);
+
+                Class classy = dndApiService.GetClassDetail(AllClasses[menuSelection - 1].Url);
+                console.PrintClass(classy);
             }
             catch (Exception ex)
             {

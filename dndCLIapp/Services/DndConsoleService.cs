@@ -20,10 +20,10 @@ namespace DndApp.Services
             Console.WriteLine("1: List all races");
             Console.WriteLine("2: List all spells");
             Console.WriteLine("3: Roll Generator");
-            Console.WriteLine("4: Ipsum");
-            Console.WriteLine("5: Create a new auction");
-            Console.WriteLine("6: Modify an auction");
-            Console.WriteLine("7: Delete an auction");
+            Console.WriteLine("4: List all classes");
+            Console.WriteLine("5: Lorem");
+            Console.WriteLine("6: Ipsum");
+            Console.WriteLine("7: Lopsem");
             Console.WriteLine("0: Exit");
             Console.WriteLine("---------");
         }
@@ -61,7 +61,7 @@ namespace DndApp.Services
         {
             Console.WriteLine("");
             Console.WriteLine("--------------------------------------------");
-            Console.WriteLine("Race Details");
+            Console.WriteLine("Racial Traits");
             Console.WriteLine("--------------------------------------------");
             Console.WriteLine("Name: " + race.Name);
             Console.WriteLine("Speed: " + race.Speed);
@@ -75,7 +75,7 @@ namespace DndApp.Services
             PrintApiReference(race.Starting_Proficiences);
             if (race.Starting_Proficiency_Options != null)
             {
-                Console.WriteLine("Starting Proficience Options: ");
+                Console.WriteLine("Starting Proficiency Options: ");
                 PrintChoice(race.Starting_Proficiency_Options);
             }
             Console.WriteLine("Languages: ");
@@ -91,6 +91,47 @@ namespace DndApp.Services
             Console.WriteLine("Subraces: ");
             PrintApiReference(race.Subraces);
             Console.WriteLine("");
+        }
+
+        public void PrintClassList(List<ApiReference> classy)
+        {
+            Console.WriteLine("");
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine("Classes");
+            Console.WriteLine("--------------------------------------------");
+            int counter = 0;
+            foreach (ApiReference classic in classy)
+            {
+                counter++;
+                Console.WriteLine($"{counter}: {classic.Name}");
+            }
+            Console.WriteLine("");
+        }
+
+        public void PrintClass(Class classy)
+        {
+            Console.WriteLine("");
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine("Class Features");
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine(classy.Name);
+            Console.WriteLine("");
+            Console.WriteLine("Hit Points\nHit Die: " + classy.Hit_Die);
+            Console.WriteLine("");
+            Console.WriteLine("Proficiency Choices ");
+            PrintChoiceList(classy.Proficiency_Choices);
+            Console.WriteLine("Starting Proficiences: ");
+            PrintApiReference(classy.Proficiencies);
+            Console.WriteLine("Saving Throws:");
+            PrintApiReference(classy.Saving_Throws);
+            Console.WriteLine("Starting Equipment:");
+            PrintStartingEquipment(classy);
+            Console.WriteLine("Starting Equipment Options");
+            PrintStartingEquipmentOptions(classy);
+
+
+
+
         }
 
         public void PrintSpells(List<Spell> spells)
@@ -142,13 +183,14 @@ namespace DndApp.Services
             if (spell.Material != null)
             {
                 Console.Write($"({spell.Material})");
+                Console.WriteLine("");
             }
-            Console.WriteLine("");
+            
             PrintSpellDuration(spell);
             Console.WriteLine("");
             Console.Write("Description: ");
             PrintListString(spell.Desc);
-            Console.WriteLine("");
+            
             if (spell.Higher_Level.Count > 0)
             {
                 Console.Write("At Higher Levels: ");
@@ -160,7 +202,7 @@ namespace DndApp.Services
                 Console.WriteLine("💥Damage💥 ");
                 PrintDamages(spell);
             }
-            if (spell.Heal != null)
+            if (spell.Heal_At_Slot_Level != null)
             {
                 Console.WriteLine("❤️‍🩹Heal At Slot Level❤️‍🩹");
                 PrintHealAtSlotLevel(spell);
@@ -189,7 +231,7 @@ namespace DndApp.Services
             int counter = 0;
             if (listApi == null || listApi.Count == 0)
             {
-                Console.WriteLine("none");
+                Console.WriteLine("  None");
             }
             else
             {
@@ -199,6 +241,18 @@ namespace DndApp.Services
                     Console.WriteLine($"  {counter}: {apir}");
                 }
                 Console.WriteLine("");
+            }
+        }
+
+        public void PrintChoiceList(List<Choice> choices)
+        {
+            if(choices != null)
+            {
+                foreach(Choice choice in choices)
+                {
+                    Console.WriteLine($"Choose {choice.Choose} from the following {choice.Type}: ");
+                    PrintApiReference(choice.From);
+                }
             }
         }
 
@@ -231,7 +285,6 @@ namespace DndApp.Services
                     Console.WriteLine($"{str}");
                     Console.WriteLine("");
                 }
-                Console.WriteLine("");
             }
         }
 
@@ -280,6 +333,47 @@ namespace DndApp.Services
             else if(spell.Concentration == false)
             {
                 Console.WriteLine($"Duration: {spell.Duration}");
+            }
+        }
+
+        public void PrintStartingEquipment(Class classy)
+        {
+            if (classy != null)
+            {
+                foreach(StartingEquipment se in classy.Starting_Equipment)
+                {
+                    Console.WriteLine($"  {se.Quantity} {se.Equipment}");
+                }
+                Console.WriteLine("");
+            }
+        }
+        public void PrintStartingEquipmentOptions(Class classy)
+        {
+            if (classy != null)
+            {
+                foreach (StartingEquipmentOptions seo in classy.Starting_Equipment_Options)
+                {
+                    Console.WriteLine($"Choose {seo.Choose} from the following {seo.Type}: ");
+                    PrintEachStartingEquipment(seo.From);
+                }
+            }
+        }
+
+        public void PrintEachStartingEquipment(List<StartingEquipment> ses)
+        {
+            int counter = 0;
+            if (ses == null || ses.Count == 0)
+            {
+                Console.WriteLine("  None");
+            }
+            else
+            {
+                foreach (StartingEquipment se in ses)
+                {
+                    counter++;
+                    Console.WriteLine($"  {counter}: {se}");
+                }
+                Console.WriteLine("");
             }
         }
 
@@ -340,23 +434,38 @@ namespace DndApp.Services
                     Console.WriteLine($"🦫Damage-Type: {spell.Damage.Damage_Type} 🌩");
                 }
 
-                Console.WriteLine($"⭐️Damage By Slot-Level ");
-                foreach(KeyValuePair<string, string> kvp in spell.Damage.Damage_At_Slot_Level)
+                if (spell.Damage.Damage_At_Slot_Level != null)
                 {
-                    Console.WriteLine($"  {kvp.Key}: {kvp.Value}");
+                    Console.WriteLine($"⭐️Damage At Slot-Level ");
+                    foreach (KeyValuePair<string, string> kvp in spell.Damage.Damage_At_Slot_Level)
+                    {
+                        Console.WriteLine($"  {kvp.Key}: {kvp.Value}");
+                    }
+                    Console.WriteLine("");
                 }
-                Console.WriteLine("");   
+                if (spell.Damage.Damage_At_Character_Level != null)
+                {
+                    Console.WriteLine($"⭐️Damage At Character-Level ");
+                    foreach (KeyValuePair<string, string> kvp in spell.Damage.Damage_At_Character_Level)
+                    {
+                        Console.WriteLine($"  {kvp.Key}: {kvp.Value}");
+                    }
+                    Console.WriteLine("");
+                }
+
+                  
             }
         }
 
         public void PrintHealAtSlotLevel(Spell spell)
         {
-            if (spell.Heal != null)
+            if (spell.Heal_At_Slot_Level != null)
             {
-                foreach(KeyValuePair<string, string> kvp in spell.Heal.HealAtSlotLevel)
+                foreach(KeyValuePair<string, string> kvp in spell.Heal_At_Slot_Level)
                 {
                     Console.WriteLine($"  {kvp.Key}: {kvp.Value}");
                 }
+                Console.WriteLine($"");
             }
         }
     }

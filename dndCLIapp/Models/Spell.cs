@@ -20,7 +20,7 @@ namespace DndApp.Models
         public int Level { get; set; }
         public string Attack_Type { get; set; }
         public Damage Damage { get; set; }
-        public Heal_At_Slot_Level Heal { get; set; }
+        public Dictionary<string, string> Heal_At_Slot_Level { get; set; }
         public ApiReference School { get; set; } //ApiReference (Magic Schools)
         public List<ApiReference> Classes { get; set; } //ApiReference (Classes)
         public List<ApiReference> Subclasses { get; set; }
