@@ -119,7 +119,7 @@ namespace DndApp.Services
             Console.WriteLine("Hit Points\nHit Dice: 1d" + classy.Hit_Die);
             Console.WriteLine("");
             Console.WriteLine("Proficiency Choices ");
-            PrintChoiceList(classy.Proficiency_Choices);
+            PrintProficienyChoices(classy.Proficiency_Choices);
             Console.WriteLine("Starting Proficiences: ");
             PrintApiReference(classy.Proficiencies);
             Console.WriteLine("Saving Throws:");
@@ -244,6 +244,17 @@ namespace DndApp.Services
             }
         }
 
+        public void PrintFromList(List<From> froms)
+        {
+            if(froms != null)
+            {
+                foreach(From from in froms)
+                {
+                    ///////////////////////
+                }
+            }
+        }
+
         public void PrintChoiceList(List<Choice> choices)
         {
             if(choices != null)
@@ -252,6 +263,18 @@ namespace DndApp.Services
                 {
                     Console.WriteLine($"Choose {choice.Choose} from the following {choice.Type}: ");
                     PrintApiReference(choice.From);
+                }
+            }
+        }
+
+        public void PrintProficienyChoices(List<ProficiencyChoice> choices)
+        {
+            if (choices != null)
+            {
+                foreach (ProficiencyChoice choice in choices)
+                {
+                    Console.WriteLine($"Choose {choice.choose} from the following {choice.type}: ");
+                    PrintFromList(choice.from);
                 }
             }
         }
@@ -342,7 +365,7 @@ namespace DndApp.Services
             {
                 foreach(StartingEquipment se in classy.Starting_Equipment)
                 {
-                    Console.WriteLine($"  {se.Quantity} {se.Equipment}");
+                    Console.WriteLine($"  {se.quantity} {se.equipment}");
                 }
                 Console.WriteLine("");
             }
@@ -359,20 +382,20 @@ namespace DndApp.Services
                     {
                         if (i == 0 && seos.from[0].equipment != null)
                         {
-                            Console.WriteLine($"  (a) {seos.from[0].quantity} {seos.from[0].equipment.name}  ");
+                            Console.WriteLine($"  (a) {seos.from[0].quantity} {seos.from[0].equipment.Name}  ");
                         }
                         else if (i == 0 && seos.from[0].equipment == null)
                         {
-                            Console.WriteLine($"  (a) {seos.from[0].quantity} {seos.from[0].equipment.name}");
+                            Console.WriteLine($"  (a) {seos.from[0].quantity} {seos.from[0].equipment.Name}");
                         }
                         else if (i == 1 && seos.from[1].equipment_option != null)
                         {
-                            Console.WriteLine($"  (b) or something from {seos.from[1].equipment_option.from.equipment_category.name}");
+                            Console.WriteLine($"  (b) or something from {seos.from[1].equipment_option.from.equipment_category.Name}");
                             Console.WriteLine("");
                         }
                         else if (i == 1 && seos.from[0].equipment != null)
                         {
-                            Console.WriteLine($"  (b) {seos.from[1].quantity} {seos.from[1].equipment.name}");
+                            Console.WriteLine($"  (b) {seos.from[1].quantity} {seos.from[1].equipment.Name}");
                             Console.WriteLine("");
                         }
                     }

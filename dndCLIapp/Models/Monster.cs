@@ -23,7 +23,7 @@ namespace DndApp.Models
         public int Intelligence { get; set; }
         public int Wisdom { get; set; }
         public int Charisma { get; set; }
-        public List<Proficiency> Proficiencies { get; set; }
+        public List<ApiReference> Proficiencies { get; set; }
         public List<string> Damage_Vulnerabilities { get; set; } //undefined list
         public List<string> Damage_Resistances { get; set; } //undefined list
         public List<string> Damage_Immunities { get; set; } //undefined list

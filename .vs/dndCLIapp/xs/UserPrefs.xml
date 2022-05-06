@@ -1,33 +1,35 @@
 ﻿<Properties StartupConfiguration="{916E53CD-F356-4BA4-838E-30CD9800EECC}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="dndCLIapp/DndApp.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="dndCLIapp/Models/Choice.cs">
     <Files>
-      <File FileName="dndCLIapp/Services/DndConsoleService.cs" Line="375" Column="55" />
-      <File FileName="dndCLIapp/Models/Class.cs" Line="25" Column="1" />
-      <File FileName="dndCLIapp/Models/StartingEquipmentOptions.cs" Line="10" Column="62" />
-      <File FileName="dndCLIapp/Models/StartingEquipment.cs" Line="7" Column="50" />
-      <File FileName="dndCLIapp/Models/EquipmentOption.cs" Line="1" Column="1" />
-      <File FileName="dndCLIapp/Models/EquipmentCategory.cs" Line="1" Column="1" />
-      <File FileName="dndCLIapp/Models/StartingEquipmentOption.cs" Line="36" Column="6" />
-      <File FileName="dndCLIapp/Services/DndApiService.cs" Line="1" Column="1" />
-      <File FileName="dndCLIapp/Services/E-ConsoleService.cs" Line="1" Column="1" />
-      <File FileName="dndCLIapp/Services/UserLoginApi.cs" Line="1" Column="1" />
-      <File FileName="dndCLIapp/Services/CharachterBuilderEngine.cs" Line="1" Column="1" />
-      <File FileName="dndCLIapp/DndApp.cs" Line="70" Column="21" />
+      <File FileName="dndCLIapp/Services/DndConsoleService.cs" Line="250" Column="14" />
+      <File FileName="dndCLIapp/Models/Class.cs" Line="46" Column="6" />
+      <File FileName="dndCLIapp/Models/StartingEquipmentOptions.cs" />
+      <File FileName="dndCLIapp/Models/EquipmentCategory.cs" />
+      <File FileName="dndCLIapp/Services/DndApiService.cs" />
+      <File FileName="dndCLIapp/Services/E-ConsoleService.cs" />
+      <File FileName="dndCLIapp/Services/UserLoginApi.cs" />
+      <File FileName="dndCLIapp/Services/CharachterBuilderEngine.cs" />
+      <File FileName="dndCLIapp/DndApp.cs" />
+      <File FileName="dndCLIapp/Models/Spell.cs" />
+      <File FileName="dndCLIapp/Models/Proficiency.cs" />
+      <File FileName="dndCLIapp/Models/AbilityScore.cs" />
+      <File FileName="dndCLIapp/Models/Spellcasting.cs" />
+      <File FileName="dndCLIapp/Models/ApiReference.cs" Line="1" Column="1" />
+      <File FileName="dndCLIapp/Models/Monster.cs" Line="9" Column="42" />
+      <File FileName="dndCLIapp/Models/Choice.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="dndCLIapp" expanded="True">
             <Node name="DndApp" expanded="True">
-              <Node name="Models" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="Choice.cs" selected="True" />
+              </Node>
               <Node name="Services" expanded="True" />
-              <Node name="DndApp.cs" selected="True" />
             </Node>
           </Node>
         </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
