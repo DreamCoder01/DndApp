@@ -354,16 +354,25 @@ namespace DndApp.Services
             {
                 foreach (StartingEquipmentOption seos in classy.Starting_Equipment_Options)
                 {
+                    Console.WriteLine($"Choose {seos.choose} from the following {seos.type}: ");
                     for (int i = 0; i < seos.from.Count; i++)
                     {
-                        if (i == 0)
+                        if (i == 0 && seos.from[0].equipment != null)
                         {
-                            Console.WriteLine($"Choose {seos.choose} from the following {seos.type}: ");
                             Console.WriteLine($"  (a) {seos.from[0].quantity} {seos.from[0].equipment.name}  ");
                         }
-                        else if (i == 1)
+                        else if (i == 0 && seos.from[0].equipment == null)
+                        {
+                            Console.WriteLine($"  (a) {seos.from[0].quantity} {seos.from[0].equipment.name}");
+                        }
+                        else if (i == 1 && seos.from[1].equipment_option != null)
                         {
                             Console.WriteLine($"  (b) or something from {seos.from[1].equipment_option.from.equipment_category.name}");
+                            Console.WriteLine("");
+                        }
+                        else if (i == 1 && seos.from[0].equipment != null)
+                        {
+                            Console.WriteLine($"  (b) {seos.from[1].quantity} {seos.from[1].equipment.name}");
                             Console.WriteLine("");
                         }
                     }

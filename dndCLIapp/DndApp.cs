@@ -61,20 +61,17 @@ namespace DndApp
 
                 if (menuSelection == 5)
                 {
-                    // Create a new auction
-                    AddAuction();
+                    
                 }
 
                 if (menuSelection == 6)
                 {
-                    // Modify an auction
-                    UpdateAuction();
+                    
                 }
 
                 if (menuSelection == 7)
                 {
-                    // Delete an auction
-                    DeleteAuction();
+                    
                 }
             }
         }
@@ -164,126 +161,6 @@ namespace DndApp
                 console.PrintError(ex.Message);
             }
             console.Pause();
-        }
-
-        private void ShowAuctionsBelowPrice()
-        {
-            /*try
-            {
-                double searchPrice = console.PromptForDouble("Please enter a max price to search for");
-                List<Auction> auctions = auctionApiService.GetAuctionsSearchPrice(searchPrice);
-                console.PrintAuctions(auctions);
-            }
-            catch (Exception ex)
-            {
-                console.PrintError(ex.Message);
-            }
-            console.Pause();*/
-        }
-
-        private void AddAuction()
-        {
-            /*Auction auctionToAdd = console.PromptForAuctionData();
-            if (auctionToAdd.IsValid)
-            {
-
-
-                try
-                {
-                    Auction addedAuction = auctionApiService.AddAuction(auctionToAdd);
-                    if (addedAuction != null)
-                    {
-                        console.PrintSuccess($"Auction {addedAuction.Id} successfully added.");
-                    }
-                    else
-                    {
-                        console.PrintError("Auction not added.");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    console.PrintError(ex.Message);
-                }
-            }
-            else
-            {
-                console.PrintError("Invalid data");
-            }
-            console.Pause();*/
-        }
-
-        private void UpdateAuction()
-        {
-            // Update an existing auction
-            /*try
-            {
-                List<Auction> auctions = auctionApiService.GetAllAuctions();
-                if (auctions != null)
-                {
-                    int auctionId = console.PromptForAuctionId(auctions, "update");
-                    if (auctionId == 0)
-                    {
-                        // User cancel
-                        return;
-                    }
-
-                    Auction oldAuction = auctionApiService.GetDetailsForAuction(auctionId);
-                    if (oldAuction != null)
-                    {
-                        Auction auctionToUpdate = console.PromptForAuctionData(oldAuction);
-                        if (auctionToUpdate.IsValid)
-                        {
-                            Auction updatedAuction = auctionApiService.UpdateAuction(auctionToUpdate);
-                            if (updatedAuction != null)
-                            {
-                                console.PrintSuccess("Auction successfully updated.");
-                            }
-                            else
-                            {
-                                console.PrintError("Auction not updated.");
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                console.PrintError(ex.Message);
-            }
-            console.Pause();*/
-        }
-
-        private void DeleteAuction()
-        {
-            // Delete auction
-            /*try
-            {
-                List<Auction> auctions = auctionApiService.GetAllAuctions();
-                if (auctions != null)
-                {
-                    int auctionId = console.PromptForAuctionId(auctions, "delete");
-                    if (auctionId == 0)
-                    {
-                        // User cancel
-                        return;
-                    }
-
-                    bool deleteSuccess = auctionApiService.DeleteAuction(auctionId);
-                    if (deleteSuccess)
-                    {
-                        console.PrintSuccess("Auction successfully deleted.");
-                    }
-                    else
-                    {
-                        console.PrintError("Auction not deleted.");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                console.PrintError(ex.Message);
-            }
-            console.Pause();*/
         }
     }
 }
