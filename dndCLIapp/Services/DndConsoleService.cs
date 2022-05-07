@@ -462,7 +462,55 @@ namespace DndApp.Services
         {
             if (classy.Multi_Classing != null)
             {
+                int counter = 0;
+                Console.WriteLine("Multiclassing");
+                if(classy.Multi_Classing.prerequisites != null)
+                {
+                    Console.WriteLine("  Prerequisites:");
+                    foreach (Prerequisite prerequisite in classy.Multi_Classing.prerequisites)
+                    {
+                        Console.WriteLine($"    Ability Score: {prerequisite.ability_score.Name}");
+                        Console.WriteLine($"    Minimum Score: {prerequisite.minimum_score}");
+                    }
+                    Console.WriteLine("");
+                }
+                
+                if (classy.Multi_Classing.prerequisite_options != null)
+                {
+                    Console.WriteLine("  Prerequisite Options:");
+                    foreach (From from in classy.Multi_Classing.prerequisite_options.from)
+                    {
+                        Console.WriteLine($"    Ability Score:{from.ability_score.Name}");
+                        Console.WriteLine($"    Minimum Score: {from.minimum_score}");
+                    }
+                    Console.WriteLine("");
+                }
 
+                if (classy.Multi_Classing.proficiencies != null)
+                {
+                    Console.WriteLine("  Proficiencies: ");
+                    foreach(ApiReference apir in classy.Multi_Classing.proficiencies)
+                    {
+                        counter++;
+                        Console.WriteLine($"    {counter}: {apir.Name}");
+                    }
+                    Console.WriteLine("");
+                }
+                if(classy.Multi_Classing.proficiency_choices != null)
+                {
+                    Console.WriteLine("  Proficiency Choices:");
+                    foreach(ProficiencyChoice pc in classy.Multi_Classing.proficiency_choices)
+                    {
+                        Console.WriteLine($"    Choose {pc.choose} from the following {pc.type}:");
+                        counter = 0;
+                        foreach(From from in pc.from)
+                        {
+                            counter++;
+                            Console.WriteLine($"    {counter}: {from.name}");
+                        }
+                        Console.WriteLine("");
+                    }
+                }
             }
         }
 
@@ -481,7 +529,6 @@ namespace DndApp.Services
                     {
                         Console.WriteLine(str);
                         Console.WriteLine("");
-
                     }
                 }
             }
