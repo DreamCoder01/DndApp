@@ -128,6 +128,8 @@ namespace DndApp.Services
             PrintStartingEquipment(classy);
             Console.WriteLine("Starting Equipment Options");
             PrintStartingEquipmentOptions(classy);
+            PrintMultiClassing(classy);
+            PrintSpellcasting(classy);
 
 
 
@@ -253,7 +255,6 @@ namespace DndApp.Services
                 {
                     counter++;
                     Console.WriteLine($"{counter}: {from.name}");
-                    ///////////////////////
                 }
                 Console.WriteLine("");
             }
@@ -449,6 +450,36 @@ namespace DndApp.Services
                                 Console.WriteLine($"  (c) {seos.from[2].quantity} {seos.from[2].equipment.Name}");
                             }
                         }
+                    }
+                    Console.WriteLine("");
+                }
+            }
+        }
+
+        public void PrintMultiClassing(Class classy)
+        {
+            if (classy.Multi_Classing != null)
+            {
+
+            }
+        }
+
+        public void PrintSpellcasting(Class classy)
+        {
+            if (classy.spellcasting != null)
+            {
+                Console.WriteLine("Spellcasting");
+                Console.WriteLine($"Level: {classy.spellcasting.level}");
+                Console.WriteLine($"Spellcasting Ability: {classy.spellcasting.spellcasting_ability.Name}");
+                Console.WriteLine($"Details:");
+                foreach(Info info in classy.spellcasting.info)
+                {
+                    Console.Write($"  {info.name}: ");
+                    foreach(string str in info.desc)
+                    {
+                        Console.Write(str);
+                        Console.WriteLine("");
+
                     }
                     Console.WriteLine("");
                 }
