@@ -129,6 +129,8 @@ namespace DndApp.Services
             Console.WriteLine("Starting Equipment Options");
             PrintStartingEquipmentOptions(classy);
             PrintMultiClassing(classy);
+            Console.WriteLine("Subclasses:");
+            PrintApiReference(classy.Subclasses);
             PrintSpellcasting(classy);
 
 
