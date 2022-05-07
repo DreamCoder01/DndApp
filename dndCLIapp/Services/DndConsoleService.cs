@@ -476,14 +476,13 @@ namespace DndApp.Services
                 Console.WriteLine($"Details:");
                 foreach(Info info in classy.spellcasting.info)
                 {
-                    Console.Write($"  {info.name}: ");
+                    Console.WriteLine($"  {info.name}: ");
                     foreach(string str in info.desc)
                     {
-                        Console.Write(str);
+                        Console.WriteLine(str);
                         Console.WriteLine("");
 
                     }
-                    Console.WriteLine("");
                 }
             }
         }
