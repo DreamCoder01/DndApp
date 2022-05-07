@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{916E53CD-F356-4BA4-838E-30CD9800EECC}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="dndCLIapp/Models/Choice.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="dndCLIapp/Services/DndConsoleService.cs">
     <Files>
-      <File FileName="dndCLIapp/Services/DndConsoleService.cs" Line="250" Column="14" />
-      <File FileName="dndCLIapp/Models/Class.cs" Line="46" Column="6" />
+      <File FileName="dndCLIapp/Services/DndConsoleService.cs" Line="385" Column="42" />
+      <File FileName="dndCLIapp/Models/Class.cs" Line="29" Column="6" />
       <File FileName="dndCLIapp/Models/StartingEquipmentOptions.cs" />
       <File FileName="dndCLIapp/Models/EquipmentCategory.cs" />
       <File FileName="dndCLIapp/Services/DndApiService.cs" />
@@ -23,10 +23,10 @@
         <State name="__root__">
           <Node name="dndCLIapp" expanded="True">
             <Node name="DndApp" expanded="True">
-              <Node name="Models" expanded="True">
-                <Node name="Choice.cs" selected="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Services" expanded="True">
+                <Node name="DndConsoleService.cs" selected="True" />
               </Node>
-              <Node name="Services" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -37,7 +37,9 @@
   <MonoDevelop.Ide.ItemProperties.DndApp PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/samuel/Documents/GitHub/DndApp/dndCLIapp/Services/DndConsoleService.cs" relfile="dndCLIapp/Services/DndConsoleService.cs" line="378" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

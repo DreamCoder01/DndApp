@@ -248,10 +248,14 @@ namespace DndApp.Services
         {
             if(froms != null)
             {
+                int counter = 0;
                 foreach(From from in froms)
                 {
+                    counter++;
+                    Console.WriteLine($"{counter}: {from.name}");
                     ///////////////////////
                 }
+                Console.WriteLine("");
             }
         }
 
@@ -380,25 +384,73 @@ namespace DndApp.Services
                     Console.WriteLine($"Choose {seos.choose} from the following {seos.type}: ");
                     for (int i = 0; i < seos.from.Count; i++)
                     {
-                        if (i == 0 && seos.from[0].equipment != null)
+                        if (i == 0)
                         {
-                            Console.WriteLine($"  (a) {seos.from[0].quantity} {seos.from[0].equipment.Name}  ");
+                            if(seos.from[0].equipment_category != null)
+                            {
+                                Console.WriteLine($"  {seos.choose} item(s) from {seos.from[0].equipment_category.Name}");
+                            }
+                            else if (seos.from[0].equipment != null && seos.from[0].prerequisites != null)
+                            {
+                                Console.WriteLine($"  (a) {seos.from[0].quantity} {seos.from[0].equipment.Name} (if proficient)");
+                            }
+                            else if (seos.from[0].equipment != null && seos.from[0].prerequisites == null)
+                            {
+                                Console.WriteLine($"  (a) {seos.from[0].quantity} {seos.from[0].equipment.Name} ");
+                            }
+                            else if(seos.from[0]._0 != null && seos.from[0]._1 != null && seos.from[0]._1.equipment_option != null)
+                            {
+                                Console.WriteLine($"  (a) {seos.from[0]._0.quantity} {seos.from[0]._0.equipment.Name} and {seos.from[0]._1.equipment_option.choose} item(s) from {seos.from[0]._1.equipment_option.from.equipment_category.Name}");
+                            }
+                            else if (seos.from[0]._0 != null && seos.from[0]._1 != null && seos.from[0]._2 == null)
+                            {
+                                Console.WriteLine($"  (a) {seos.from[0]._0.quantity} {seos.from[0]._0.equipment.Name} and {seos.from[0]._1.quantity} {seos.from[0]._1.equipment.Name}");
+                            }
+                            else if (seos.from[0].equipment_option != null)
+                            {
+                                Console.WriteLine($"  (a) {seos.from[0].equipment_option.choose} item(s) from {seos.from[0].equipment_option.from.equipment_category.Name}");
+                            }
                         }
-                        else if (i == 0 && seos.from[0].equipment == null)
+                        else if (i == 1)
                         {
-                            Console.WriteLine($"  (a) {seos.from[0].quantity} {seos.from[0].equipment.Name}");
+                            if (seos.from[1].equipment != null && seos.from[1].prerequisites != null)
+                            {
+                                Console.WriteLine($"  (b) {seos.from[1].quantity} {seos.from[1].equipment.Name} (if proficient)");
+                            }
+                            else if (seos.from[1].equipment != null && seos.from[1].prerequisites == null)
+                            {
+                                Console.WriteLine($"  (b) {seos.from[1].quantity} {seos.from[1].equipment.Name}");
+                            }
+                            else if (seos.from[1].equipment_option != null)
+                            {
+                                Console.WriteLine($"  (b) {seos.from[1].equipment_option.choose} item(s) from {seos.from[1].equipment_option.from.equipment_category.Name}");
+                            }
+                            else if (seos.from[1]._0 != null && seos.from[1]._1 != null && seos.from[1]._2 != null)
+                            {
+                                Console.WriteLine($"  (b) {seos.from[1]._0.quantity} {seos.from[1]._0.equipment.Name}, {seos.from[1]._1.quantity} {seos.from[1]._1.equipment.Name}, and {seos.from[1]._2.quantity} {seos.from[1]._2.equipment.Name} ");
+                            }
+                            else if (seos.from[1]._0 != null && seos.from[1]._1 != null && seos.from[1]._2 == null)
+                            {
+                                Console.WriteLine($"  (a) {seos.from[1]._0.quantity} {seos.from[1]._0.equipment.Name} and {seos.from[1]._1.quantity} {seos.from[1]._1.equipment.Name}");
+                            }
                         }
-                        else if (i == 1 && seos.from[1].equipment_option != null)
+                        else if (i == 2)
                         {
-                            Console.WriteLine($"  (b) or something from {seos.from[1].equipment_option.from.equipment_category.Name}");
-                            Console.WriteLine("");
-                        }
-                        else if (i == 1 && seos.from[0].equipment != null)
-                        {
-                            Console.WriteLine($"  (b) {seos.from[1].quantity} {seos.from[1].equipment.Name}");
-                            Console.WriteLine("");
+                            if (seos.from[2].equipment_option != null)
+                            {
+                                Console.WriteLine($"  (c) {seos.from[2].equipment_option.choose} item(s) from {seos.from[2].equipment_option.from.equipment_category.Name}");
+                            }
+                            else if (seos.from[2].equipment != null && seos.from[2].prerequisites != null)
+                            {
+                                Console.WriteLine($"  (c) {seos.from[2].quantity} {seos.from[2].equipment.Name} (if proficient)");
+                            }
+                            else if (seos.from[2].equipment != null && seos.from[2].prerequisites == null)
+                            {
+                                Console.WriteLine($"  (c) {seos.from[2].quantity} {seos.from[2].equipment.Name}");
+                            }
                         }
                     }
+                    Console.WriteLine("");
                 }
             }
         }
