@@ -19,9 +19,9 @@ namespace DndApp.Services
             Console.WriteLine("Menu:");
             Console.WriteLine("1: List all races");
             Console.WriteLine("2: List all spells");
-            Console.WriteLine("3: Roll Generator");
+            Console.WriteLine("3: Roll generator");
             Console.WriteLine("4: List all classes");
-            Console.WriteLine("5: Lorem");
+            Console.WriteLine("5: List spells by class-level");
             Console.WriteLine("6: Ipsum");
             Console.WriteLine("7: Lopsem");
             Console.WriteLine("0: Exit");
@@ -177,7 +177,7 @@ namespace DndApp.Services
             PrintSpellLevel(spell);
             Console.WriteLine("");
             Console.WriteLine("Casting Time: " + spell.Casting_Time);
-            if(spell.Attack_Type != null)
+            if (spell.Attack_Type != null)
             {
                 Console.WriteLine("Attack-Type: " + spell.Attack_Type);
             }
@@ -189,12 +189,12 @@ namespace DndApp.Services
                 Console.Write($"({spell.Material})");
                 Console.WriteLine("");
             }
-            
+
             PrintSpellDuration(spell);
             Console.WriteLine("");
             Console.Write("Description: ");
             PrintListString(spell.Desc);
-            
+
             if (spell.Higher_Level.Count > 0)
             {
                 Console.Write("At Higher Levels: ");
@@ -218,9 +218,50 @@ namespace DndApp.Services
                 Console.WriteLine("Subclasses: ");
                 PrintApiReference(spell.Subclasses);
             }
-            
+
             Console.WriteLine("");
         }
+
+
+        public void PrintSpellByClassLevel(List<Spell> classySpells)
+        {
+            if (classySpells != null)
+            {
+                Console.WriteLine("");
+                Console.WriteLine("--------------------------------------------");
+                Console.WriteLine("Spell Lists");
+                Console.WriteLine("--------------------------------------------");
+                Console.WriteLine("");
+                Console.WriteLine("Bard Spells");
+                Console.WriteLine("--------------------------------------------");
+                PrintClassSpellList9("Bard", classySpells);
+                Console.WriteLine("Cleric Spells");
+                Console.WriteLine("--------------------------------------------");
+                PrintClassSpellList9("Cleric", classySpells);
+                Console.WriteLine("Druid Spells");
+                Console.WriteLine("--------------------------------------------");
+                PrintClassSpellList9("Druid", classySpells);
+                Console.WriteLine("Paladin Spells");
+                Console.WriteLine("--------------------------------------------");
+                PrintClassSpellList5("Paladin", classySpells);
+                Console.WriteLine("Ranger Spells");
+                Console.WriteLine("--------------------------------------------");
+                PrintClassSpellList5("Ranger", classySpells);
+                Console.WriteLine("Sorcerer Spells");
+                Console.WriteLine("--------------------------------------------");
+                PrintClassSpellList9("Sorcerer", classySpells);
+                Console.WriteLine("Warlock Spells");
+                Console.WriteLine("--------------------------------------------");
+                PrintClassSpellList9("Warlock", classySpells);
+                Console.WriteLine("Wizard Spells");
+                Console.WriteLine("--------------------------------------------");
+                PrintClassSpellList9("Wizard", classySpells);
+            }
+        }
+
+
+        ///////////////////////////////////////////////////////////////////////
+
 
         public void PrintAbilityBonuses(List<AbilityBonus> abilityBonuses)
         {
@@ -250,13 +291,13 @@ namespace DndApp.Services
 
         public void PrintFromList(List<From> froms)
         {
-            if(froms != null)
+            if (froms != null)
             {
                 int counter = 0;
-                foreach(From from in froms)
+                foreach (From from in froms)
                 {
                     counter++;
-                    Console.WriteLine($"{counter}: {from.name}");
+                    Console.WriteLine($"  {counter}: {from.name}");
                 }
                 Console.WriteLine("");
             }
@@ -264,9 +305,9 @@ namespace DndApp.Services
 
         public void PrintChoiceList(List<Choice> choices)
         {
-            if(choices != null)
+            if (choices != null)
             {
-                foreach(Choice choice in choices)
+                foreach (Choice choice in choices)
                 {
                     Console.WriteLine($"Choose {choice.Choose} from the following {choice.Type}: ");
                     PrintApiReference(choice.From);
@@ -320,7 +361,7 @@ namespace DndApp.Services
 
         public void PrintSpellLevel(Spell spell)
         {
-            if(spell.Level == 1 && spell.Ritual == true)
+            if (spell.Level == 1 && spell.Ritual == true)
             {
                 Console.WriteLine($"{spell.Level}st-level {spell.School.Name} (ritual)");
             }
@@ -356,11 +397,11 @@ namespace DndApp.Services
 
         public void PrintSpellDuration(Spell spell)
         {
-            if(spell.Concentration == true)
+            if (spell.Concentration == true)
             {
                 Console.WriteLine($"Duration: Concentration, {spell.Duration}");
             }
-            else if(spell.Concentration == false)
+            else if (spell.Concentration == false)
             {
                 Console.WriteLine($"Duration: {spell.Duration}");
             }
@@ -370,7 +411,7 @@ namespace DndApp.Services
         {
             if (classy != null)
             {
-                foreach(StartingEquipment se in classy.Starting_Equipment)
+                foreach (StartingEquipment se in classy.Starting_Equipment)
                 {
                     Console.WriteLine($"  {se.quantity} {se.equipment}");
                 }
@@ -389,7 +430,7 @@ namespace DndApp.Services
                     {
                         if (i == 0)
                         {
-                            if(seos.from[0].equipment_category != null)
+                            if (seos.from[0].equipment_category != null)
                             {
                                 Console.WriteLine($"  {seos.choose} item(s) from {seos.from[0].equipment_category.Name}");
                             }
@@ -401,7 +442,7 @@ namespace DndApp.Services
                             {
                                 Console.WriteLine($"  (a) {seos.from[0].quantity} {seos.from[0].equipment.Name} ");
                             }
-                            else if(seos.from[0]._0 != null && seos.from[0]._1 != null && seos.from[0]._1.equipment_option != null)
+                            else if (seos.from[0]._0 != null && seos.from[0]._1 != null && seos.from[0]._1.equipment_option != null)
                             {
                                 Console.WriteLine($"  (a) {seos.from[0]._0.quantity} {seos.from[0]._0.equipment.Name} and {seos.from[0]._1.equipment_option.choose} item(s) from {seos.from[0]._1.equipment_option.from.equipment_category.Name}");
                             }
@@ -464,7 +505,7 @@ namespace DndApp.Services
             {
                 int counter = 0;
                 Console.WriteLine("Multiclassing");
-                if(classy.Multi_Classing.prerequisites != null)
+                if (classy.Multi_Classing.prerequisites != null)
                 {
                     Console.WriteLine("  Prerequisites:");
                     foreach (Prerequisite prerequisite in classy.Multi_Classing.prerequisites)
@@ -474,7 +515,7 @@ namespace DndApp.Services
                     }
                     Console.WriteLine("");
                 }
-                
+
                 if (classy.Multi_Classing.prerequisite_options != null)
                 {
                     Console.WriteLine("  Prerequisite Options:");
@@ -489,21 +530,21 @@ namespace DndApp.Services
                 if (classy.Multi_Classing.proficiencies != null)
                 {
                     Console.WriteLine("  Proficiencies: ");
-                    foreach(ApiReference apir in classy.Multi_Classing.proficiencies)
+                    foreach (ApiReference apir in classy.Multi_Classing.proficiencies)
                     {
                         counter++;
                         Console.WriteLine($"    {counter}: {apir.Name}");
                     }
                     Console.WriteLine("");
                 }
-                if(classy.Multi_Classing.proficiency_choices != null)
+                if (classy.Multi_Classing.proficiency_choices != null)
                 {
                     Console.WriteLine("  Proficiency Choices:");
-                    foreach(ProficiencyChoice pc in classy.Multi_Classing.proficiency_choices)
+                    foreach (ProficiencyChoice pc in classy.Multi_Classing.proficiency_choices)
                     {
                         Console.WriteLine($"    Choose {pc.choose} from the following {pc.type}:");
                         counter = 0;
-                        foreach(From from in pc.from)
+                        foreach (From from in pc.from)
                         {
                             counter++;
                             Console.WriteLine($"    {counter}: {from.name}");
@@ -522,10 +563,10 @@ namespace DndApp.Services
                 Console.WriteLine($"Level: {classy.spellcasting.level}");
                 Console.WriteLine($"Spellcasting Ability: {classy.spellcasting.spellcasting_ability.Name}");
                 Console.WriteLine($"Details:");
-                foreach(Info info in classy.spellcasting.info)
+                foreach (Info info in classy.spellcasting.info)
                 {
                     Console.WriteLine($"  {info.name}: ");
-                    foreach(string str in info.desc)
+                    foreach (string str in info.desc)
                     {
                         Console.WriteLine(str);
                         Console.WriteLine("");
@@ -538,7 +579,7 @@ namespace DndApp.Services
         {
             if (spell.Damage != null)
             {
-                if(spell.Damage.Damage_Type.Name == "Acid")
+                if (spell.Damage.Damage_Type.Name == "Acid")
                 {
                     Console.WriteLine($"🦫Damage-Type: {spell.Damage.Damage_Type} 🧬");
                 }
@@ -610,7 +651,7 @@ namespace DndApp.Services
                     Console.WriteLine("");
                 }
 
-                  
+
             }
         }
 
@@ -618,12 +659,218 @@ namespace DndApp.Services
         {
             if (spell.Heal_At_Slot_Level != null)
             {
-                foreach(KeyValuePair<string, string> kvp in spell.Heal_At_Slot_Level)
+                foreach (KeyValuePair<string, string> kvp in spell.Heal_At_Slot_Level)
                 {
                     Console.WriteLine($"  {kvp.Key}: {kvp.Value}");
                 }
                 Console.WriteLine($"");
             }
+        }
+
+        public void PrintClassSpellList9(string str, List<Spell> classySpells)
+        {
+            Console.WriteLine("Cantrips (Level 0)");
+
+            foreach (Spell spell in classySpells)
+            {
+                foreach (ApiReference apir in spell.Classes)
+                {
+                    if (apir.Name == str && spell.Level == 0)
+                    {
+                        Console.WriteLine(spell.Name);
+                    }
+                }
+            }
+            Console.WriteLine("");
+            Console.WriteLine("1st Level");
+            foreach (Spell spell in classySpells)
+            {
+                foreach (ApiReference apir in spell.Classes)
+                {
+                    if (apir.Name == str && spell.Level == 1)
+                    {
+                        Console.WriteLine(spell.Name);
+                    }
+                }
+            }
+            Console.WriteLine("");
+            Console.WriteLine("2nd Level");
+            foreach (Spell spell in classySpells)
+            {
+                foreach (ApiReference apir in spell.Classes)
+                {
+                    if (apir.Name == str && spell.Level == 2)
+                    {
+                        Console.WriteLine(spell.Name);
+                    }
+                }
+            }
+            Console.WriteLine("");
+            Console.WriteLine("3rd Level");
+            foreach (Spell spell in classySpells)
+            {
+                foreach (ApiReference apir in spell.Classes)
+                {
+                    if (apir.Name == str && spell.Level == 3)
+                    {
+                        Console.WriteLine(spell.Name);
+                    }
+                }
+            }
+            Console.WriteLine("");
+            Console.WriteLine("4th Level");
+            foreach (Spell spell in classySpells)
+            {
+                foreach (ApiReference apir in spell.Classes)
+                {
+                    if (apir.Name == str && spell.Level == 4)
+                    {
+                        Console.WriteLine(spell.Name);
+                    }
+                }
+            }
+            Console.WriteLine("");
+            Console.WriteLine("5th Level");
+            foreach (Spell spell in classySpells)
+            {
+                foreach (ApiReference apir in spell.Classes)
+                {
+                    if (apir.Name == str && spell.Level == 5)
+                    {
+                        Console.WriteLine(spell.Name);
+                    }
+                }
+            }
+            Console.WriteLine("");
+            Console.WriteLine("6th Level");
+            foreach (Spell spell in classySpells)
+            {
+                foreach (ApiReference apir in spell.Classes)
+                {
+                    if (apir.Name == str && spell.Level == 6)
+                    {
+                        Console.WriteLine(spell.Name);
+                    }
+                }
+            }
+            Console.WriteLine("");
+            Console.WriteLine("7th Level");
+            foreach (Spell spell in classySpells)
+            {
+                foreach (ApiReference apir in spell.Classes)
+                {
+                    if (apir.Name == str && spell.Level == 7)
+                    {
+                        Console.WriteLine(spell.Name);
+                    }
+                }
+            }
+            Console.WriteLine("");
+            Console.WriteLine("8th Level");
+            foreach (Spell spell in classySpells)
+            {
+                foreach (ApiReference apir in spell.Classes)
+                {
+                    if (apir.Name == str && spell.Level == 8)
+                    {
+                        Console.WriteLine(spell.Name);
+                    }
+                }
+            }
+            Console.WriteLine("");
+            Console.WriteLine("9th Level");
+            foreach (Spell spell in classySpells)
+            {
+                foreach (ApiReference apir in spell.Classes)
+                {
+                    if (apir.Name == str && spell.Level == 9)
+                    {
+                        Console.WriteLine(spell.Name);
+                    }
+                }
+            }
+            Console.WriteLine("");
+            Console.WriteLine("");
+
+        }
+
+        public void PrintClassSpellList5(string str, List<Spell> classySpells)
+        {
+            Console.WriteLine("Cantrips (Level 0)");
+
+            foreach (Spell spell in classySpells)
+            {
+                foreach (ApiReference apir in spell.Classes)
+                {
+                    if (apir.Name == str && spell.Level == 0)
+                    {
+                        Console.WriteLine(spell.Name);
+                    }
+                }
+            }
+            Console.WriteLine("");
+            Console.WriteLine("1st Level");
+            foreach (Spell spell in classySpells)
+            {
+                foreach (ApiReference apir in spell.Classes)
+                {
+                    if (apir.Name == str && spell.Level == 1)
+                    {
+                        Console.WriteLine(spell.Name);
+                    }
+                }
+            }
+            Console.WriteLine("");
+            Console.WriteLine("2nd Level");
+            foreach (Spell spell in classySpells)
+            {
+                foreach (ApiReference apir in spell.Classes)
+                {
+                    if (apir.Name == str && spell.Level == 2)
+                    {
+                        Console.WriteLine(spell.Name);
+                    }
+                }
+            }
+            Console.WriteLine("");
+            Console.WriteLine("3rd Level");
+            foreach (Spell spell in classySpells)
+            {
+                foreach (ApiReference apir in spell.Classes)
+                {
+                    if (apir.Name == str && spell.Level == 3)
+                    {
+                        Console.WriteLine(spell.Name);
+                    }
+                }
+            }
+            Console.WriteLine("");
+            Console.WriteLine("4th Level");
+            foreach (Spell spell in classySpells)
+            {
+                foreach (ApiReference apir in spell.Classes)
+                {
+                    if (apir.Name == str && spell.Level == 4)
+                    {
+                        Console.WriteLine(spell.Name);
+                    }
+                }
+            }
+            Console.WriteLine("");
+            Console.WriteLine("5th Level");
+            foreach (Spell spell in classySpells)
+            {
+                foreach (ApiReference apir in spell.Classes)
+                {
+                    if (apir.Name == str && spell.Level == 5)
+                    {
+                        Console.WriteLine(spell.Name);
+                    }
+                }
+            }
+            Console.WriteLine("");
+            Console.WriteLine("");
+
         }
     }
 }

@@ -61,7 +61,7 @@ namespace DndApp
 
                 if (menuSelection == 5)
                 {
-                    
+                    ShowSpellsByClassLevel();
                 }
 
                 if (menuSelection == 6)
@@ -122,6 +122,29 @@ namespace DndApp
 
                 Spell spell = dndApiService.GetSpellDetail(AllSpells[menuSelection - 1].Url);
                 console.PrintSpell(spell);
+            }
+            catch (Exception ex)
+            {
+                console.PrintError(ex.Message);
+            }
+            console.Pause();
+        }
+
+        private void ShowSpellsByClassLevel()
+        {
+            try
+            {
+                AllSpells = dndApiService.DisplaySpellList();
+                Spell spell = new Spell();
+                List<Spell> allSpellDetails = new List<Spell>();
+
+                foreach (ApiReference apir in AllSpells)
+                {
+                    spell = dndApiService.GetSpellDetail(apir.Url);
+                    allSpellDetails.Add(spell);
+                }
+
+                console.PrintSpellByClassLevel(allSpellDetails);
             }
             catch (Exception ex)
             {
