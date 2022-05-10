@@ -225,11 +225,11 @@ namespace DndApp.Services
 
         public void PrintSpellByClassLevel(List<Spell> classySpells)
         {
-            if (classySpells != null)
+            if (classySpells != null)//execution time ~ 47s 
             {
                 Console.WriteLine("");
                 Console.WriteLine("--------------------------------------------");
-                Console.WriteLine("Spell Lists");
+                Console.WriteLine("Spell List By Class-Level");
                 Console.WriteLine("--------------------------------------------");
                 Console.WriteLine("");
                 Console.WriteLine("Bard Spells");
@@ -259,6 +259,29 @@ namespace DndApp.Services
             }
         }
 
+
+        public void PrintSpellListBySchool(List<Spell> spells)
+        {
+            if(spells != null)
+            {
+                Console.WriteLine("");
+                Console.WriteLine("--------------------------------------------");
+                Console.WriteLine("Spell By Magic School");
+                Console.WriteLine("--------------------------------------------");
+                Console.WriteLine("");
+                //display list of magic schools
+                //user choice
+                //display list of spells (slow way) foreach spell, API get call
+                //outside of mvp (scrap or build database for faster execution time)
+            }
+        }
+
+        public void PrintSkillsList()
+        {
+
+        }
+
+        public void 
 
         ///////////////////////////////////////////////////////////////////////
 

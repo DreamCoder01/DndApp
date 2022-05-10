@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DndApp.Models
 {
-    class Skill
+    public class Skill
     {
         public string Index { get; set; }
         public string Name { get; set; }

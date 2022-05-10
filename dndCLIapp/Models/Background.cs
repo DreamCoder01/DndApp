@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DndApp.Models
 {
-    class Background//Api only has Acolyte -- Need more backgrounds?
+    public class Background//Api only has Acolyte -- Need more backgrounds?
     {
         public string Index { get; set; }
         public string Name { get; set; }

@@ -91,6 +91,10 @@ namespace DndApp.Services
             return response.Data;
         }
 
+        public List<Spell> DisplaySpellsByClassLevel()
+        {
+            return 
+        }
 
         public ApiReferenceList ReturnListOfSpells()
         {

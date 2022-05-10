@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DndApp.Models
 {
-    class Alignment
+   public class Alignment
     {
         public string Index { get; set; }
         public string Name { get; set; }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DndApp.Models
 {
-    class Subclass
+    public class Subclass
     {
         public string Index { get; set; }
         public ApiReference Class { get; set; } //ApiReference (Class)
