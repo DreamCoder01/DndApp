@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{916E53CD-F356-4BA4-838E-30CD9800EECC}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="dndCLIapp/Models/Skill.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="dndCLIapp/Models/CharacterSheet.cs">
     <Files>
       <File FileName="dndCLIapp/Services/DndConsoleService.cs" Line="284" Column="21" />
       <File FileName="dndCLIapp/Models/Class.cs" Line="29" Column="6" />
@@ -12,13 +12,13 @@
       <File FileName="dndCLIapp/DndApp.cs" Line="133" Column="46" />
       <File FileName="dndCLIapp/Models/Spell.cs" Line="27" Column="40" />
       <File FileName="dndCLIapp/Models/Proficiency.cs" />
-      <File FileName="dndCLIapp/Models/AbilityScore.cs" />
+      <File FileName="dndCLIapp/Models/AbilityScore.cs" Line="7" Column="12" />
       <File FileName="dndCLIapp/Models/Spellcasting.cs" />
       <File FileName="dndCLIapp/Models/ApiReference.cs" />
       <File FileName="dndCLIapp/Models/Monster.cs" />
       <File FileName="dndCLIapp/Models/Choice.cs" />
       <File FileName="dndCLIapp/Models/LevelsForClass.cs" />
-      <File FileName="dndCLIapp/Models/CharacterSheet.cs" Line="22" Column="31" />
+      <File FileName="dndCLIapp/Models/CharacterSheet.cs" Line="42" Column="1" />
       <File FileName="dndCLIapp/Controllers/DndController.cs" Line="14" Column="1" />
       <File FileName="dndCLIapp/Models/Background.cs" Line="7" Column="12" />
       <File FileName="dndCLIapp/Models/Alignment.cs" Line="7" Column="10" />
@@ -26,6 +26,7 @@
       <File FileName="dndCLIapp/Models/Subclass.cs" Line="7" Column="12" />
       <File FileName="dndCLIapp/Models/User.cs" Line="12" Column="1" />
       <File FileName="dndCLIapp/Models/Skill.cs" Line="7" Column="12" />
+      <File FileName="dndCLIapp/Models/EquipmentPack.cs" Line="7" Column="12" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -34,7 +35,7 @@
             <Node name="DndApp" expanded="True">
               <Node name="Controllers" expanded="True" />
               <Node name="Models" expanded="True">
-                <Node name="Skill.cs" selected="True" />
+                <Node name="CharacterSheet.cs" selected="True" />
               </Node>
               <Node name="Services" expanded="True" />
             </Node>
